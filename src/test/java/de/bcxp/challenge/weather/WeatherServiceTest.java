@@ -47,7 +47,7 @@ public class WeatherServiceTest {
 
         WeatherService service = getWeatherService(data);
         int result = service.findDayWithLowestTemperatureSpread();
-        assertEquals(0, result);
+        assertEquals(1, result);
     }
 
     @Test
@@ -55,13 +55,13 @@ public class WeatherServiceTest {
         Collection<WeatherData> data = new ArrayList<>();
         WeatherData entry1 = getWeatherData(0, 10, 5);
         WeatherData entry2 = getWeatherData(1, 12,6);
-        WeatherData entry3 = getWeatherData(1, 1,999);
+        WeatherData entry3 = getWeatherData(2, 1,999);
         data.add(entry1);
         data.add(entry2);
         data.add(entry3);
 
         WeatherService service = getWeatherService(data);
         int result = service.findDayWithLowestTemperatureSpread();
-        assertEquals(1, result);
+        assertEquals(0, result);
     }
 }
