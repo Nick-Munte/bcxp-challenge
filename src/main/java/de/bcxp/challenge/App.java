@@ -1,5 +1,7 @@
 package de.bcxp.challenge;
 
+import de.bcxp.challenge.country.CountryData;
+import de.bcxp.challenge.country.CountryService;
 import de.bcxp.challenge.reader.DatasetReader;
 import de.bcxp.challenge.reader.csv.CsvDatasetReader;
 import de.bcxp.challenge.reader.csv.CsvRowFactory;
@@ -17,12 +19,13 @@ public final class App {
      */
     public static void main(String... args) throws Exception {
         WeatherService weatherService = App.getWeatherService();
+        CountryService countryService = App.getCountryService();
 
         String dayWithSmallestTempSpread = weatherService.findDayWithLowestTemperatureSpread();
         System.out.printf("Day with smallest temperature spread: %s%n", dayWithSmallestTempSpread);
 
-        // String countryWithHighestPopulationDensity = "Some country"; // Your population density analysis function call …
-        // System.out.printf("Country with highest population density: %s%n", countryWithHighestPopulationDensity);
+        String countryWithHighestPopulationDensity = countryService.findCountryWithHighestPopulationDensity();
+        System.out.printf("Country with highest population density: %s%n", countryWithHighestPopulationDensity);
     }
 
     private static WeatherService getWeatherService() {
@@ -43,5 +46,22 @@ public final class App {
         DatasetReader<WeatherData> reader = new CsvDatasetReader<WeatherData>(csvFilePath, rowFactory,
                                                                             delimiter, skipOnMalformedRow);
         return new WeatherService(reader);
+    }
+
+    private static CountryService getCountryService() {
+        Path csvFilePath = Paths.get("src", "main", "resources", "de", "bcxp", "challenge", "countries.csv");
+        CsvRowFactory<CountryData> rowFactory = (entry) -> {
+            return new CountryData(
+                    entry.get("Name"), entry.get("Capital"),
+                    entry.get("Accession"), Integer.parseInt(entry.get("Population")),
+                    Integer.parseInt(entry.get("Area (km²)")), Integer.parseInt(entry.get("GDP (US$ M)")),
+                    Float.parseFloat(entry.get("HDI")), Integer.parseInt(entry.get("MEPs")));
+        };
+        String delimiter = ";";
+        boolean skipOnMalformedRow = true;
+
+        DatasetReader<CountryData> reader = new CsvDatasetReader<CountryData>(csvFilePath, rowFactory,
+                delimiter, skipOnMalformedRow);
+        return new CountryService(reader);
     }
 }
