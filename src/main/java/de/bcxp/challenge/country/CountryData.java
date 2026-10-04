@@ -1,14 +1,14 @@
 package de.bcxp.challenge.country;
 
 public class CountryData {
-    private String name;
-    private String capital;
-    private String accession;
-    private int population;
-    private int area_km2;
-    private int gDP_MUSD;
-    private float mEPs;
-    private int hDI;
+    private final String name;
+    private final String capital;
+    private final String accession;
+    private final int population;
+    private final int area_km2;
+    private final int gDP_MUSD;
+    private final float mEPs;
+    private final int hDI;
 
     public CountryData(String name, String capital, String accession, int population, int area_km2, int gDP_MUSD, float mEPs, int hDI) {
         this.name = name;
