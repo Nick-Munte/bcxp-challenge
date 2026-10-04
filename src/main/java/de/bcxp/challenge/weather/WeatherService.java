@@ -16,7 +16,7 @@ public class WeatherService {
     }
 
     /**
-     * Calculates the day with the smallest difference between MxT and MnT
+     * Calculates the day with the largest difference between MxT and MnT
      * Filters out any invalid entries, where MxT < MnT
      * Returns "None" if there are no entries
      * @return String
