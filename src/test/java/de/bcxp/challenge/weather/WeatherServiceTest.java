@@ -30,7 +30,7 @@ public class WeatherServiceTest {
     }
 
     @Test
-    public void givenEmptyData_whenFindDayWithLowestTemperatureSpread_thenReturnNaN() throws Exception {
+    public void givenEmptyData_whenFindDayWithLowestTemperatureSpread_thenReturnNone() throws Exception {
         Collection<WeatherData> data = new ArrayList<>();
         WeatherService service = getWeatherService(data);
         String result = service.findDayWithLowestTemperatureSpread();
