@@ -37,7 +37,9 @@ public class CsvDatasetReader<T> implements DatasetReader<T> {
     public Collection<T> read() throws Exception {
         Scanner scanner = new Scanner(this.path.toFile());
         String[] headers = this.getHeaders(scanner);
-        return this.getRecords(scanner, headers);
+        Collection<T> records = this.getRecords(scanner, headers);
+        scanner.close();
+        return records;
     }
 
     private String[] getHeaders(Scanner scanner) throws MissingCsvHeaderException {
