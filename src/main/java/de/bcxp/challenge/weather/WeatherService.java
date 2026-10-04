@@ -15,7 +15,7 @@ public class WeatherService {
         this.reader = reader;
     }
 
-    public int findDayWithLowestTemperatureSpread() throws Exception {
+    public String findDayWithLowestTemperatureSpread() throws Exception {
         Collection<WeatherData> data = reader.read();
 
         Optional<WeatherData> minSpreadEntry = data.stream().
@@ -25,9 +25,9 @@ public class WeatherService {
                 min(Comparator.comparingInt(entry -> entry.getMxT() - entry.getMnT()));
 
         if (minSpreadEntry.isEmpty()) {
-            return -1;
+            return "None";
         }
 
-        return minSpreadEntry.get().getDay();
+        return String.valueOf(minSpreadEntry.get().getDay());
     }
 }

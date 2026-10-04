@@ -33,8 +33,8 @@ public class WeatherServiceTest {
     public void givenEmptyData_whenFindDayWithLowestTemperatureSpread_thenReturnNaN() throws Exception {
         Collection<WeatherData> data = new ArrayList<>();
         WeatherService service = getWeatherService(data);
-        int result = service.findDayWithLowestTemperatureSpread();
-        assertEquals(-1, result);
+        String result = service.findDayWithLowestTemperatureSpread();
+        assertEquals("None", result);
     }
 
     @Test
@@ -46,8 +46,8 @@ public class WeatherServiceTest {
         data.add(entry2);
 
         WeatherService service = getWeatherService(data);
-        int result = service.findDayWithLowestTemperatureSpread();
-        assertEquals(1, result);
+        String result = service.findDayWithLowestTemperatureSpread();
+        assertEquals("1", result);
     }
 
     @Test
@@ -61,7 +61,7 @@ public class WeatherServiceTest {
         data.add(entry3);
 
         WeatherService service = getWeatherService(data);
-        int result = service.findDayWithLowestTemperatureSpread();
-        assertEquals(0, result);
+        String result = service.findDayWithLowestTemperatureSpread();
+        assertEquals("0", result);
     }
 }
