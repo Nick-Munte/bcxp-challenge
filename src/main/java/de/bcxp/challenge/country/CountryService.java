@@ -14,6 +14,13 @@ public class CountryService {
         this.reader = reader;
     }
 
+    /**
+     * Calculates the country with the smallest ratio between population and area
+     * Filters out any invalid entries, where area is not positive
+     * Returns "None" if there are no valid entries
+     * @return String
+     * @throws Exception Any exceptions that occur during dataset reading or stream operations
+     */
     public String findCountryWithHighestPopulationDensity() throws Exception {
         Collection<CountryData> data = reader.read();
 
