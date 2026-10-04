@@ -46,7 +46,7 @@ Or use your IDE functionality::
 
 ~2h planning for the challenge
 
-~3h implementing, debugging and testing
+~3-4h implementing, debugging and testing
 
 == AI use disclaimer
 
