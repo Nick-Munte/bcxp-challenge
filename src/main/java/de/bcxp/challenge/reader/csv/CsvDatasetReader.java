@@ -40,7 +40,7 @@ public class CsvDatasetReader<T> implements DatasetReader<T> {
     private Collection<T> getRecords(Scanner scanner, String[] headers) throws MalformedCsvRowException {
         Collection<T> records = new ArrayList<T>();
 
-        int lineNumber = 0;
+        int lineNumber = 1;
         while (scanner.hasNextLine()) {
             lineNumber += 1;
 
