@@ -1,7 +1,7 @@
 package de.bcxp.challenge.reader.csv;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public interface CsvRowFactory<T> {
-    T build(HashMap<String, String> rowData);
+    T build(Map<String, String> rowData);
 }
