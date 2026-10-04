@@ -21,7 +21,7 @@ public class CountryServiceTest {
     }
 
     private static CountryData getCountryData(String country, int population, int area) {
-        return new CountryData(country, "", 0, population, area, 0, 0, 0);
+        return new CountryData(country, "", "", population, area, 0, 0, 0);
     }
 
     @BeforeAll

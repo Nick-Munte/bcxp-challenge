@@ -3,14 +3,14 @@ package de.bcxp.challenge.country;
 public class CountryData {
     private String name;
     private String capital;
-    private int accession;
+    private String accession;
     private int population;
     private int area_km2;
     private int gDP_MUSD;
     private float mEPs;
     private int hDI;
 
-    public CountryData(String name, String capital, int accession, int population, int area_km2, int gDP_MUSD, float mEPs, int hDI) {
+    public CountryData(String name, String capital, String accession, int population, int area_km2, int gDP_MUSD, float mEPs, int hDI) {
         this.name = name;
         this.capital = capital;
         this.accession = accession;
@@ -29,7 +29,7 @@ public class CountryData {
         return capital;
     }
 
-    public int getAccession() {
+    public String getAccession() {
         return accession;
     }
 
