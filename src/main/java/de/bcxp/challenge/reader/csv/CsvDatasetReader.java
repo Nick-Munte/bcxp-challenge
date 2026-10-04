@@ -16,6 +16,12 @@ public class CsvDatasetReader<T> implements DatasetReader<T> {
     private final String delimiter;
     private final boolean skipOnMalformedRow;
 
+    /**
+     * @param path The path to the CSV file
+     * @param rowFactory A function that takes string to string map entries and converts them to records
+     * @param delimiter The CSV delimiter
+     * @param skipOnMalformedRow false if malformed rows should throw a MalformedCsvRowException, true to skip them
+     */
     public CsvDatasetReader(Path path, CsvRowFactory<T> rowFactory, String delimiter, boolean skipOnMalformedRow) {
         this.path = path;
         this.rowFactory = rowFactory;
@@ -23,6 +29,11 @@ public class CsvDatasetReader<T> implements DatasetReader<T> {
         this.skipOnMalformedRow = skipOnMalformedRow;
     }
 
+    /**
+     * Reads the provided CSV file and returns a collection of records
+     * @return Collection[T]
+     * @throws Exception Any exceptions that occur during file reading and record building
+     */
     public Collection<T> read() throws Exception {
         Scanner scanner = new Scanner(this.path.toFile());
         String[] headers = this.getHeaders(scanner);
@@ -51,7 +62,7 @@ public class CsvDatasetReader<T> implements DatasetReader<T> {
                 String errMsg = String.format("Malformed row in file %s, line %d: %s",
                                                 this.path.toString(), lineNumber, e.getMessage());
                 if (this.skipOnMalformedRow) {
-                    this.logger.warning(errMsg);
+                    logger.warning(errMsg);
                 } else {
                     throw new MalformedCsvRowException(errMsg);
                 }

@@ -15,6 +15,13 @@ public class WeatherService {
         this.reader = reader;
     }
 
+    /**
+     * Calculates the day with the smallest difference between MxT and MnT
+     * Filters out any invalid entries, where MxT < MnT
+     * Returns "None" if there are no entries
+     * @return String
+     * @throws Exception Any exceptions that occur during dataset reading or stream operations
+     */
     public String findDayWithLowestTemperatureSpread() throws Exception {
         Collection<WeatherData> data = reader.read();
 

@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 public final class App {
 
     /**
-     * This is the main entry method of your program.
+     * This is the main entry method of the challenge.
      * @param args The CLI arguments passed
      */
     public static void main(String... args) throws Exception {
