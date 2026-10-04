@@ -43,8 +43,10 @@ Or use your IDE functionality::
 
 == Time estimation
 ~2h getting accustomed to and setting up Java
+
 ~2h planning for the challenge
-~?h implementing, debugging and testing
+
+~3h implementing, debugging and testing
 
 == AI use disclaimer
 
