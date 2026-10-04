@@ -12,7 +12,7 @@ public class WeatherService {
         this.reader = reader;
     }
 
-    public String findCountryWithLowestTemperatureSpread() {
-        return "None";
+    public int findDayWithLowestTemperatureSpread() {
+        return -1;
     }
 }
